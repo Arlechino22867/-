@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #0f1225; /* Темно-синий фон Геншина */
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Звездный фон */
+.stars-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px);
+    background-size: 550px 550px, 350px 350px;
+    z-index: -1;
+    animation: starsMove 100s linear infinite;
+}
+
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: 550px 550px; }
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #ece5d8;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.primogems {
+    font-size: 1.2rem;
+    color: #aebbc4;
+    background: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #ffd700;
+    margin-bottom: 2rem;
+}
+
+/* Область результата */
+.banner-area {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    perspective: 1000px;
+}
+
+.card {
+    width: 200px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card.shine {
+    animation: shineAnim 0.5s ease-out;
+}
+
+@keyframes shineAnim {
+    0% { transform: scale(0.8) rotateY(90deg); opacity: 0; }
+    100% { transform: scale(1) rotateY(0); opacity: 1; }
+}
+
+.item-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+.item-type {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+/* Цвета редкости */
+.rarity-3 { border-color: #3c9cf7; box-shadow: 0 0 20px rgba(60, 156, 247, 0.4); }
+.rarity-3 .item-name { color: #3c9cf7; }
+
+.rarity-4 { border-color: #a256e1; box-shadow: 0 0 25px rgba(162, 86, 225, 0.6); }
+.rarity-4 .item-name { color: #a256e1; }
+
+.rarity-5 { border-color: #ffb13f; box-shadow: 0 0 40px rgba(255, 177, 63, 0.8); background: rgba(255, 215, 0, 0.1); }
+.rarity-5 .item-name { color: #ffb13f; text-shadow: 0 0 10px #ffb13f; }
+
+/* Кнопки */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.btn-wish {
+    background: #ece5d8;
+    color: #3b4255;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.btn-wish:hover {
+    transform: scale(1.05);
+    background: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.btn-wish:active {
+    transform: scale(0.95);
+}
+
+.btn-wish small {
+    font-size: 0.75rem;
+    margin-top: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* История */
+.history-log {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #4a5866;
+}
+
+.history-log h3 {
+    font-size: 1rem;
+    color: #aebbc4;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #4a5866;
+    padding-bottom: 5px;
+}
+
+.history-list {
+    list-style: none;
+}
+
+.history-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
